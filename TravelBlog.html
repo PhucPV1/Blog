@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='shortcut icon' href='https://i0.wp.com/www.stuckinsand.com/wp-content/uploads/2017/06/cropped-stuck-in-sand-favicon.png?fit=512%2C512&ssl=1' />
+    <title>Travel Blog</title>
+    <link rel="stylesheet" href="TravelBlog.css">
+  </head>
+  <body>
+    <!-- Heading -->
+    <heading class="w3-container w3-row w3-center">
+      <div class="w3-col l2">
+        <a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook w3-xlarge"></i></a>
+        <a href=""><i class="fa fa-twitter w3-xlarge"></i></a>
+        <a href=""><i class="fa fa-pinterest w3-xlarge"></i></a>
+        <a href=""><i class="fa fa-instagram w3-xlarge"></i></a>
+      </div>
+      <div class="w3-col l8">
+        <h1><a href="https://phucpv1.github.io/page/a.html">Letsblog</a></h1>
+      </div>
+      <div class="w3-col l2"><i class="fa fa-search w3-xlarge"></i>
+        <i class="fa fa-plane w3-xlarge"></i>
+      </div>
+    </heading>
+    <!-- Menu -->
+    <nav>
+      <ul id="menu">
+        <li>
+          <a href="">Menu</a>
+          <ul class="submenu">
+            <li><a href="">Travel Information</a></li>
+            <li><a href="">Travel Tips</a></li>
+            <li><a href="https://phucpv1.github.io/page/a.html">Locations</a></li>
+          </ul>
+        </li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a>
+        <ul class="submenu">
+          <li><a href="">Email Us</a></li>
+          <li><a href="">Call</a></li>
+        </ul>
+        </li>
+        <li onclick="openmodal()"><a>Login</a></li>
+        <li onclick="toastsuccess()"><a>For Members</a></li>
+        <li onclick="toasterror()"><a>Discovery</a></li>
+      </ul>
+    </nav>
+    <!-- Modal, login -->
+    <div id="modal" class="w3-modal">
+      <div class="w3-modal-content w3-teal w3-card-4 w3-animate-zoom">
+        <header class="w3-container w3-center w3-teal">
+          <h3>Login</h3>
+          <span onclick="closemodal()" class="w3-button w3-display-topright modal_closeButton">&times;</span>
+        </header>
+        <div class="w3-container"></div>
+        <form class="pure-form pure-form-stacked">
+          <fieldset>
+            <label for="stacked-email">Email</label>
+            <input type="email" id="stacked-email" placeholder="Email" />
+            <span style="color: rgba(0, 0, 0, 0.555)">This is a required field.</span>
+            <label for="stacked-password">Password</label>
+            <input type="password" id="stacked-password" placeholder="Password" />
+            <label for="stacked-remember" class="pure-checkbox">
+              <input type="checkbox" id="stacked-remember" /> Remember me
+            </label>
+            <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <!-- SlideShow -->
+    <div class="w3-display-container">
+        <img src="pics/1.jpg" alt="" class="slide"/>
+        <img src="pics/2.jpg" alt="" class="slide"/>
+        <img src="pics/3.jpg" alt="" class="slide"/>
+        <img src="pics/4.jpg" alt="" class="slide"/>
+        <button class="w3-button w3-teal w3-display-left" onclick="plus(-1)">&#10094</button>
+        <button class="w3-button w3-teal w3-display-right" onclick="plus(1)">&#10095</button>
+      </div>
+    <!-- Tab -->
+    <div>
+      <div class="w3-bar w3-teal">
+        <button onclick="opentabs('tab1')" class="w3-bar-item w3-button">Tab01</button>
+        <button onclick="opentabs('tab2')" class="w3-bar-item w3-button">Tab02</button>
+        <button onclick="opentabs('tab3')" class="w3-bar-item w3-button">Tab03</button>
+      </div>
+      <div id="tab1" class="w3-container w3-border tabs">
+        <h3>Content of tab 01</h3>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil reiciendis excepturi accusantium! Expedita
+          odio quae velit. Ducimus qui in veniam, eius incidunt pariatur quae animi, quis officia earum dignissimos sed?
+        </p>
+      </div>
+      <div id="tab2" style="display: none" class="w3-container w3-border tabs">
+        <h3>Content of tab 02</h3>
+        <p>
+          2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil reiciendis excepturi accusantium! Expedita
+          odio quae velit. Ducimus qui in veniam, eius incidunt pariatur quae animi, quis officia earum dignissimos sed?
+        </p>
+      </div>
+      <div id="tab3" style="display: none" class="w3-container w3-border tabs">
+        <h3>Content of tab 03</h3>
+        <p>
+          3 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil reiciendis excepturi accusantium! Expedita
+          odio quae velit. Ducimus qui in veniam, eius incidunt pariatur quae animi, quis officia earum dignissimos sed?
+        </p>
+      </div>
+    </div>
+    <div id="toast"></div>
+    <div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      /* open menu in mobile mode */
+      // function openmenu() {
+      //   x = document.getElementById("nav")
+      //   if (x.className.indexOf("w3-show") == -1) {
+      //     x.className += " w3-show"
+      //   } else {
+      //     x.className = x.className.replace("w3-show", " ")
+      //   }
+      // }
+      /* slide show */
+      var index = 1
+      show(index)
+      function plus(n) {
+        show((index += n))
+      }
+      function show() {
+        var x = document.getElementsByClassName("slide")
+        if (index > x.length) {
+          index = 1
+        }
+        if (index < 1) {
+          index = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none"
+        }
+        x[index - 1].style.display = "block"
+        x[index-1].style.animation="slide ease-out 0.6s"
+      }
+      /* open tabs */
+      function opentabs(tabName) {
+        var x = document.getElementsByClassName("tabs")
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none"
+        }
+        document.getElementById(tabName).style.display = "block"
+      }
+      /* open close login form */
+      function openmodal() {
+        document.getElementById("modal").style.display = "block"
+      }
+      function closemodal() {
+        document.getElementById("modal").style.display = "none"
+      }
+      /* display submenu */
+      $(document).ready(function(){
+        $("#menu li").hover(function(){
+          $(this).find("ul:first").slideDown(550)
+        }, function (){
+          $(this).find("ul:first").slideUp(550)
+        }
+        )
+      })
+      function toast({ title, message, type, duration }) {
+        const main = document.getElementById("toast")
+        if (main) {
+          const toast_content = document.createElement("div")
+          const icons = {
+            success: "fas fa-check-circle",
+            error: "fas fa-exclamation-triangle",
+          }
+          const icon = icons[type]
+          const delay = duration / 1000
+          toast_content.classList.add("toast", `toast--${type}`)
+          toast_content.style.animation = `floatIn ease 0.3s, fadeOut linear ${delay}s forwards`
+          //auto remove toast
+          const autoRemoveId = setTimeout(() => {
+            main.removeChild(toast_content)
+          }, 7000)
+          //remove toast when click
+          toast_content.onclick = (d) => {
+            if (d.target.closest(".toast__close")) {
+              main.removeChild(toast_content)
+              clearTimeout(autoRemoveId)
+            }
+          }
+          toast_content.innerHTML = `
+            <div class="toast__logo">
+                <i class="${icon}"></i>
+            </div>
+            <div class="toast__content">
+                <h3 class="toast__title">${title}</h3>
+                <p class="toast__msg">${message}</p>
+            </div>
+            <div class="toast__close">
+                <i class="fas fa-times"></i>
+            </div>
+            `
+          main.appendChild(toast_content)
+        }
+      }
+      toastsuccess = () => {
+        toast({
+          title: "Success",
+          message: "Any one with access can view your journey",
+          type: "success",
+          duration: 10000,
+        })
+      }
+      toasterror = () => {
+        toast({
+          title: "Error",
+          message: "Please login first",
+          type: "error",
+          duration: 10000,
+        })
+      }
+    </script>
+  </body>
+</html>
