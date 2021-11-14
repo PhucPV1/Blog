@@ -53,7 +53,7 @@ a {
 #menu li:hover {
   background-color: rgba(16, 199, 199, 0.541);
 }
-h1 a:hover,
+h1 a,
 heading .w3-col {
   display: flex;
   align-items: center;
@@ -219,9 +219,6 @@ heading i {
 }
 h3 {
   margin-bottom: 0;
-}
-.modal_closeButton {
-  font-size: 27px;
 }
 img {
   object-fit: cover;
