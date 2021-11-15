@@ -155,11 +155,17 @@
       }
       /* open close login form */
       function openmodal() {
-        document.getElementById("modal").style.display = "block"
+        document.getElementById("modal").style.display = "flex"
       }
       function closemodal() {
         document.getElementById("modal").style.display = "none"
       }
+      const modalClose = document.querySelector(".w3-modal")
+      const modalContent = document.querySelector(".w3-modal-content")
+      modalClose.addEventListener("click",closemodal)
+      modalContent.addEventListener("click",(e)=>{
+          e.stopPropagation()
+      })
       /* display submenu */
       $(document).ready(function(){
         $("#menu li").hover(function(){
