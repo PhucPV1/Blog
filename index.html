@@ -156,6 +156,9 @@
       /* open close login form */
       function openmodal() {
         document.getElementById("modal").style.display = "flex"
+        document.onkeydown = (e) => {
+        if(e.which = 65){closemodal()}
+      }
       }
       function closemodal() {
         document.getElementById("modal").style.display = "none"
