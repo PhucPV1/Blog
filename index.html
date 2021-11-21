@@ -26,6 +26,7 @@
         <i class="fa fa-plane w3-xlarge"></i>
       </div>
     </heading>
+    <!-- Close Heading -->
     <!-- Menu -->
     <nav>
       <ul id="menu">
@@ -44,34 +45,67 @@
           <li><a href="#">Call</a></li>
         </ul>
         </li>
-        <li onclick="openmodal()"><a>Login</a></li>
+        <li onclick="openmodal()"><a>Sign Up</a></li>
         <li onclick="toastsuccess()"><a>For Members</a></li>
         <li onclick="toasterror()"><a>Discovery</a></li>
       </ul>
     </nav>
-    <!-- Modal, login -->
+     <!-- Close Menu -->
+    <!-- Modal, sign up -->
     <div id="modal" class="w3-modal">
-      <div class="w3-modal-content w3-teal w3-card-4 w3-animate-zoom">
-        <header class="w3-container w3-center w3-teal">
-          <h3>Login</h3>
-          <span onclick="closemodal()" class="w3-button w3-display-topright modal_closeButton">&times;</span>
-        </header>
-        <div class="w3-container"></div>
-        <form class="pure-form pure-form-stacked">
-          <fieldset>
-            <label for="stacked-email">Email</label>
-            <input type="email" id="stacked-email" placeholder="Email" />
-            <span style="color: rgba(0, 0, 0, 0.555)">This is a required field.</span>
-            <label for="stacked-password">Password</label>
-            <input type="password" id="stacked-password" placeholder="Password" />
-            <label for="stacked-remember" class="pure-checkbox">
-              <input type="checkbox" id="stacked-remember" /> Remember me
-            </label>
-            <button type="submit" class="pure-button pure-button-primary">Sign in</button>
-          </fieldset>
-        </form>
+    <form action="" method="POST" class="form modal-content" id="form-1">
+      <h3 class="heading">Sign Up</h3>
+      <p class="desc">Sign Up To Explore The World Together❤️</p>
+
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="fullname" class="form-label">Your Name</label>
+        <input id="fullname" name="fullname" type="text" placeholder="Enter Your Name" class="form-control" />
+        <span class="form-message"></span>
       </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" name="email" type="text" placeholder="email@domain.com" class="form-control" />
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter Your Password" class="form-control" />
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password_confirmation" class="form-label">Re-Enter Your Password</label>
+        <input
+          id="password_confirmation"
+          name="password_confirmation"
+          placeholder="Re-Enter Your Password"
+          type="password"
+          class="form-control"
+        />
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="province" class="form-label">State</label>
+        <select id="province" name="province" class="form-control state">
+          <option value="">--Your State--</option>
+          <option value="arizona">Arizona</option>
+          <option value="texas">Texas</option>
+          <option value="nevada">Nevada</option>
+        </select>
+        <span class="form-message"></span>
+      </div>
+      
+      <div class="form-group">
+      <button class="form-submit">Sign Up</button>
+      </div>
+    </form>
     </div>
+     <!--Close Modal, sign up -->
     <!-- SlideShow -->
     <div class="w3-display-container">
         <img src="pics/1.jpg" alt="" class="slide"/>
@@ -81,6 +115,7 @@
         <button class="w3-button w3-teal w3-display-left" onclick="plus(-1)">&#10094</button>
         <button class="w3-button w3-teal w3-display-right" onclick="plus(1)">&#10095</button>
       </div>
+      <!-- Close SlideShow -->
     <!-- Tab -->
     <div>
       <div class="w3-bar w3-teal">
@@ -110,8 +145,9 @@
         </p>
       </div>
     </div>
+    <!-- Close Tab -->
     <div id="toast"></div>
-    <div>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -153,18 +189,18 @@
         }
         document.getElementById(tabName).style.display = "block"
       }
-      /* open close login form */
+      /* open close sign up form */
       function openmodal() {
         document.getElementById("modal").style.display = "flex"
         document.onkeydown = (e) => {
-        if(e.which = 65){closemodal()}
+        if(e.which === 27){closemodal()}
       }
       }
       function closemodal() {
         document.getElementById("modal").style.display = "none"
       }
-      const modalClose = document.querySelector(".w3-modal")
-      const modalContent = document.querySelector(".w3-modal-content")
+      const modalClose = document.querySelector("#modal")
+      const modalContent = document.querySelector(".modal-content")
       modalClose.addEventListener("click",closemodal)
       modalContent.addEventListener("click",(e)=>{
           e.stopPropagation()
@@ -195,13 +231,13 @@
           const autoRemoveId = setTimeout(() => {
             main.removeChild(toast_content)
           }, 7000)
-          //remove toast when click
-          toast_content.onclick = (d) => {
-            if (d.target.closest(".toast__close")) {
-              main.removeChild(toast_content)
-              clearTimeout(autoRemoveId)
-            }
-          }
+          //remove toast when click close button
+          // toast_content.onclick = (d) => {
+          //   if (d.target.closest(".toast__close")) {
+          //     main.removeChild(toast_content)
+          //     clearTimeout(autoRemoveId)
+          //   }
+          // }
           toast_content.innerHTML = `
             <div class="toast__logo">
                 <i class="${icon}"></i>
@@ -233,6 +269,39 @@
           duration: 10000,
         })
       }
+    </script>
+    <script src="./valid.js"></script>
+    <script>
+      Validator({
+        idForm: "#form-1",
+        formGroupSelector: ".form-group",
+        errorSelector: ".form-message",
+        passwordSelector: "#password",
+        passwordConfirmationSelector: "#password_confirmation",
+        password_Name: "password",
+        selectOption_Name: "province",
+        rules: [
+          Validator.isRequired("#fullname"),
+          Validator.isRequired("#email"),
+          Validator.isRequired("#password"),
+          Validator.isRequired("#password_confirmation"),
+          Validator.isRequired("#province"),
+          // Validator.isRequired("input[name='gender']"),
+          // Validator.isRequired("#avatar"),
+          Validator.isEmail("#email"),
+          Validator.isMinLength("#password", 6),
+          Validator.isConfirmPassword(
+            "#password_confirmation",
+            () => {
+              return document.querySelector("#form-1 #password").value
+            },
+          ),
+        ],
+        onSubmit: function (data) {
+          // call API
+          console.log(data)
+        },
+      })
     </script>
   </body>
 </html>
