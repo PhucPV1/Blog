@@ -288,17 +288,20 @@ img {
 }
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
+  .form-control {
+    height: 2rem;
+    margin-top: -5px;
+  }
+  .form-control {
+    margin-top: 0;
+    height: 2.3rem;
+  }
 }
 /* Mobile */
 @media (max-width: 739px) {
   .form-control {
     height: 2rem;
-    border: 1px solid #b3b3b3;
-    border-radius: 3px;
-    outline: none;
-    font-size: 0.9rem;
     margin-top: -5px;
-    padding: 10px 12px 10px 12px;
   }
   .form-control {
     margin-top: 0;
