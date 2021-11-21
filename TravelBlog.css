@@ -290,7 +290,7 @@ img {
 @media (min-width: 740px) and (max-width: 1023px) {
   .form-control {
     height: 2rem;
-    margin-top: -5px;
+    margin-top: 5px;
   }
   .form-control {
     margin-top: 0;
