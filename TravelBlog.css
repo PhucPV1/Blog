@@ -210,6 +210,7 @@ img {
 .form-group label {
   font-weight: 600;
   color: #2f718f;
+  margin-bottom: -2px;
 }
 #modal .desc {
   color: #636d77;
@@ -252,6 +253,8 @@ img {
 
 .form-group.invalid .form-message {
   color: #f33a58;
+  margin-top: -5px;
+  font-size: 0.8rem;
 }
 .form-submit:hover {
   background-color: #1ac7b6;
@@ -299,6 +302,9 @@ img {
 }
 /* Mobile */
 @media (max-width: 739px) {
+  .modal-content {
+    padding: 0 4% 2.5% 4%;
+  }
   .form-control {
     height: 2rem;
     margin-top: -5px;
