@@ -313,4 +313,7 @@ img {
     margin-top: 0;
     height: 2.3rem;
   }
+  .form-group.invalid .form-message {
+    margin-top: -2px;
+  }
 }
