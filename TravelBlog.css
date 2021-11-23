@@ -316,4 +316,7 @@ img {
   .form-group {
     margin-bottom: 0.2rem;
   }
+  .form-group.invalid {
+    margin-bottom: 0;
+  }
 }
