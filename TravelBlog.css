@@ -290,6 +290,17 @@ img {
     transform: translateY(0);
   }
 }
+/* Desktop */
+@media (min-width: 1024px) {
+  heading.w3-col:first-child {
+    padding-left: 2%;
+    justify-content: flex-start;
+  }
+  heading.w3-col:last-child {
+    padding-right: 2%;
+    justify-content: flex-end;
+  }
+}
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
   .form-control {
