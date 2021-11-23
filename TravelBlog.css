@@ -307,14 +307,13 @@ img {
     padding: 0 4% 2.5% 4%;
   }
   .form-control {
-    height: 2rem;
-    margin-top: -5px;
-  }
-  .form-control {
     margin-top: 0;
     height: 2.3rem;
   }
   .form-group.invalid .form-message {
     margin-top: 2px;
+  }
+  .form-group {
+    margin-bottom: 0.5rem;
   }
 }
